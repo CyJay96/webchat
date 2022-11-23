@@ -1,19 +1,17 @@
-package co.bukable.chatservice.domain;
+package co.bukable.chatservice.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.OffsetDateTime;
 
+@Data
 @Builder
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatMessage {
+public class ChatMessageDtoResponse {
 
     private String id;
 
@@ -31,6 +29,6 @@ public class ChatMessage {
 
     private String fileUrl;
 
-    private OffsetDateTime timestamp;
+    private String timestamp;
 
 }
