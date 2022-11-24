@@ -1,15 +1,14 @@
 package co.bukable.chatservice.mapper;
 
 import co.bukable.chatservice.domain.ChatRoom;
-import co.bukable.chatservice.dto.request.ChatRoomDtoRequest;
-import co.bukable.chatservice.dto.response.ChatRoomDtoResponse;
+import co.bukable.chatservice.dto.ChatRoomDto;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface ChatRoomMapper {
 
-    ChatRoom dtoRequestToDomain(final ChatRoomDtoRequest chatRoomDtoRequest);
+    ChatRoom dtoToDomain(final ChatRoomDto chatRoomDto);
 
-    ChatRoomDtoResponse domainToDtoResponse(final ChatRoom chatRoom);
+    ChatRoomDto domainToDto(final ChatRoom chatRoom);
 
 }

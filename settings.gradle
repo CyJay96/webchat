@@ -1,1 +1,3 @@
 rootProject.name = 'webchat'
+
+include 'chat-service'

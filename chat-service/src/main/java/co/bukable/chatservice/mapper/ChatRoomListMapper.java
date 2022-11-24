@@ -1,8 +1,7 @@
 package co.bukable.chatservice.mapper;
 
 import co.bukable.chatservice.domain.ChatRoom;
-import co.bukable.chatservice.dto.request.ChatRoomDtoRequest;
-import co.bukable.chatservice.dto.response.ChatRoomDtoResponse;
+import co.bukable.chatservice.dto.ChatRoomDto;
 import org.mapstruct.Mapper;
 
 import java.util.List;
@@ -10,8 +9,8 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = ChatRoomMapper.class)
 public interface ChatRoomListMapper {
 
-    List<ChatRoom> dtoRequestToDomain(final List<ChatRoomDtoRequest> chatRoomDtoRequests);
+    List<ChatRoom> dtoToDomain(final List<ChatRoomDto> chatRoomDtos);
 
-    List<ChatRoomDtoResponse> domainToDtoResponse(final List<ChatRoom> chatRooms);
+    List<ChatRoomDto> domainToDto(final List<ChatRoom> chatRooms);
 
 }

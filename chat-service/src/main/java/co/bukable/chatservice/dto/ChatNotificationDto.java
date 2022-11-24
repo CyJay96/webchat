@@ -1,4 +1,4 @@
-package co.bukable.chatservice.dto.request;
+package co.bukable.chatservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatNotificationDroRequest {
+public class ChatNotificationDto {
 
     private String id;
 

@@ -1,6 +1,6 @@
 package co.bukable.chatservice.dto.request;
 
-import co.bukable.chatservice.dto.response.MessageStatus;
+import co.bukable.chatservice.domain.MessageStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

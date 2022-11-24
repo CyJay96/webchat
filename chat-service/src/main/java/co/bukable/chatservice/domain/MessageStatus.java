@@ -1,4 +1,4 @@
-package co.bukable.chatservice.dto.response;
+package co.bukable.chatservice.domain;
 
 public enum MessageStatus {
 

@@ -1,8 +1,7 @@
 package co.bukable.chatservice.mapper;
 
 import co.bukable.chatservice.domain.ChatNotification;
-import co.bukable.chatservice.dto.request.ChatNotificationDroRequest;
-import co.bukable.chatservice.dto.response.ChatNotificationDtoResponse;
+import co.bukable.chatservice.dto.ChatNotificationDto;
 import org.mapstruct.Mapper;
 
 import java.util.List;
@@ -10,8 +9,8 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = ChatNotificationMapper.class)
 public interface ChatNotificationListMapper {
 
-    List<ChatNotification> dtoRequestToDomain(final List<ChatNotificationDroRequest> chatNotificationDroRequests);
+    List<ChatNotification> dtoToDomain(final List<ChatNotificationDto> chatNotificationDtos);
 
-    List<ChatNotificationDtoResponse> domainToDtoResponse(final List<ChatNotification> chatNotifications);
+    List<ChatNotificationDto> domainToDto(final List<ChatNotification> chatNotifications);
 
 }

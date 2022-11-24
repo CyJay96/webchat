@@ -1,15 +1,14 @@
 package co.bukable.chatservice.mapper;
 
 import co.bukable.chatservice.domain.ChatNotification;
-import co.bukable.chatservice.dto.request.ChatNotificationDroRequest;
-import co.bukable.chatservice.dto.response.ChatNotificationDtoResponse;
+import co.bukable.chatservice.dto.ChatNotificationDto;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface ChatNotificationMapper {
 
-    ChatNotification dtoRequestToDomain(final ChatNotificationDroRequest chatNotificationDroRequest);
+    ChatNotification dtoToDomain(final ChatNotificationDto chatNotificationDto);
 
-    ChatNotificationDtoResponse domainToDtoResponse(final ChatNotification chatNotification);
+    ChatNotificationDto domainToDto(final ChatNotification chatNotification);
 
 }

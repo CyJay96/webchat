@@ -1,4 +1,4 @@
-package co.bukable.chatservice.dto.response;
+package co.bukable.chatservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,12 +9,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatNotificationDtoResponse {
+public class ChatRoomDto {
 
     private String id;
 
+    private String chatId;
+
     private String senderId;
 
-    private String senderName;
+    private String recipientId;
 
 }
