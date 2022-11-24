@@ -9,26 +9,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatMessageDtoResponse {
+public class ChatNotificationDtoResponse {
 
     private String id;
 
-    private String chatId;
-
     private String senderId;
 
-    private String recipientId;
-
     private String senderName;
-
-    private String recipientName;
-
-    private String content;
-
-    private String fileUrl;
-
-    private String timestamp;
-
-    private MessageStatus status;
 
 }

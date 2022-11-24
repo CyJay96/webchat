@@ -1,5 +1,6 @@
 package co.bukable.chatservice.domain;
 
+import co.bukable.chatservice.dto.response.MessageStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,5 +33,7 @@ public class ChatMessage {
     private String fileUrl;
 
     private OffsetDateTime timestamp;
+
+    private MessageStatus status;
 
 }
