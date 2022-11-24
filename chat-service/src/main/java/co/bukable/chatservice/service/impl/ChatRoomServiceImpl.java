@@ -15,7 +15,7 @@ public class ChatRoomServiceImpl implements ChatRoomService {
     private final ChatRoomRepository chatRoomRepository;
 
     @Override
-    public ChatRoom fetchChatRoomBySenderIdAndRecipientId(final String senderId, final String recipientId) {
+    public ChatRoom fetchChatRoomsBySenderIdAndRecipientId(final String senderId, final String recipientId) {
         final Optional<ChatRoom> chatRoomOptional = chatRoomRepository
                 .findBySenderIdAndRecipientId(senderId, recipientId);
 

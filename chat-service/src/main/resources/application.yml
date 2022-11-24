@@ -3,3 +3,9 @@ spring:
     mongodb:
       database: chat_service
       port: 27017
+
+  rabbitmq:
+    host: localhost
+    port: 61613
+    username: guest
+    password: guest
