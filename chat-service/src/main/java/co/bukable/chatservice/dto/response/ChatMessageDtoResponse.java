@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 
 @Data
 @Builder
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ChatMessageDtoResponse {
 
+    @Id
     private String id;
 
     private String chatId;

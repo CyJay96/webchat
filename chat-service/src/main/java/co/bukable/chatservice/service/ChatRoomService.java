@@ -2,8 +2,10 @@ package co.bukable.chatservice.service;
 
 import co.bukable.chatservice.domain.ChatRoom;
 
+import java.util.List;
+
 public interface ChatRoomService {
 
-    ChatRoom fetchChatRoomsBySenderIdAndRecipientId(final String senderId, final String recipientId);
+    List<ChatRoom> fetchChatRoomsBySenderIdAndRecipientId(final String senderId, final String recipientId);
 
 }

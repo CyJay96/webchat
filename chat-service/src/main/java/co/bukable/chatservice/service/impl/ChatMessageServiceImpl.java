@@ -4,6 +4,7 @@ import co.bukable.chatservice.domain.ChatMessage;
 import co.bukable.chatservice.domain.ChatNotification;
 import co.bukable.chatservice.domain.ChatRoom;
 import co.bukable.chatservice.domain.MessageStatus;
+import co.bukable.chatservice.exception.ResourceNotFoundException;
 import co.bukable.chatservice.repository.ChatMessageRepository;
 import co.bukable.chatservice.service.ChatMessageService;
 import co.bukable.chatservice.service.ChatRoomService;
@@ -31,10 +32,11 @@ public class ChatMessageServiceImpl implements ChatMessageService {
 
     @Override
     public void sendChatMessage(final ChatMessage chatMessage) {
-        final ChatRoom chatRoom = chatRoomService.
+        final List<ChatRoom> chatRooms = chatRoomService.
                 fetchChatRoomsBySenderIdAndRecipientId(chatMessage.getSenderId(), chatMessage.getRecipientId());
 
-        chatMessage.setChatId(chatMessage.getChatId());
+        int firstElementIndex = 0;
+        chatMessage.setChatId(chatRooms.get(firstElementIndex).getChatId());
 
         final ChatMessage savedChatMessage = saveChatMessage(chatMessage);
 
@@ -57,11 +59,12 @@ public class ChatMessageServiceImpl implements ChatMessageService {
 
     @Override
     public List<ChatMessage> fetchChatMessages(final String senderId, final String recipientId) {
-        final ChatRoom chatRoom = chatRoomService.fetchChatRoomsBySenderIdAndRecipientId(senderId, recipientId);
+        List<ChatRoom> chatRooms = chatRoomService.fetchChatRoomsBySenderIdAndRecipientId(senderId, recipientId);
 
         List<ChatMessage> chatMessages;
         try {
-            chatMessages = chatMessageRepository.findByChatId(chatRoom.getChatId());
+            int firstElementIndex = 0;
+            chatMessages = chatMessageRepository.findByChatId(chatRooms.get(firstElementIndex).getChatId());
         } catch (Exception e) {
             chatMessages = new ArrayList<>();
         }
@@ -79,7 +82,7 @@ public class ChatMessageServiceImpl implements ChatMessageService {
                     chatMessage.setStatus(MessageStatus.DELIVERED);
                     return chatMessageRepository.save(chatMessage);
                 })
-                .orElseThrow(() -> new RuntimeException("Chat Message with id: " + id + " not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Chat Message with id: " + id + " not found"));
     }
 
     @Override
